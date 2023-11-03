@@ -64,7 +64,7 @@ namespace DAL
             try
             {
                 Connect();
-                string query = "Delete from NhanVien where MaNhanVien = " + index_nv);
+                string query = "Delete from NhanVien where MaNhanVien = " + index_nv;
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.ExecuteNonQuery();
