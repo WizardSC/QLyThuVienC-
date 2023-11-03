@@ -30,45 +30,100 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienGUI));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnSinhVien = new System.Windows.Forms.ToolStripButton();
+            this.btnBangCap = new System.Windows.Forms.ToolStripButton();
+            this.btnLapTheDocGia = new System.Windows.Forms.ToolStripButton();
+            this.btnTiepNhanSach = new System.Windows.Forms.ToolStripButton();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.AutoSize = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(175)))), ((int)(((byte)(248)))));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator1,
-            this.toolStripButton1});
+            this.btnSinhVien,
+            this.btnBangCap,
+            this.btnLapTheDocGia,
+            this.btnTiepNhanSach,
+            this.btnThoat});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(902, 85);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1234, 49);
+            this.toolStrip1.TabIndex = 2;
+            this.toolStrip1.Text = "Sinh viên";
             // 
-            // toolStripSeparator1
+            // btnSinhVien
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 128);
+            this.btnSinhVien.AutoSize = false;
+            this.btnSinhVien.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSinhVien.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.Image")));
+            this.btnSinhVien.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSinhVien.Name = "btnSinhVien";
+            this.btnSinhVien.Size = new System.Drawing.Size(100, 37);
+            this.btnSinhVien.Text = "Sinh viên";
+            this.btnSinhVien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSinhVien.Click += new System.EventHandler(this.btnSinhVien_Click);
             // 
-            // toolStripButton1
+            // btnBangCap
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 82);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.btnBangCap.AutoSize = false;
+            this.btnBangCap.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBangCap.Image = ((System.Drawing.Image)(resources.GetObject("btnBangCap.Image")));
+            this.btnBangCap.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBangCap.Name = "btnBangCap";
+            this.btnBangCap.Size = new System.Drawing.Size(100, 37);
+            this.btnBangCap.Text = "Bằng cấp";
+            this.btnBangCap.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBangCap.Click += new System.EventHandler(this.btnBangCap_Click);
+            // 
+            // btnLapTheDocGia
+            // 
+            this.btnLapTheDocGia.AutoSize = false;
+            this.btnLapTheDocGia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLapTheDocGia.Image = ((System.Drawing.Image)(resources.GetObject("btnLapTheDocGia.Image")));
+            this.btnLapTheDocGia.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLapTheDocGia.Name = "btnLapTheDocGia";
+            this.btnLapTheDocGia.Size = new System.Drawing.Size(150, 37);
+            this.btnLapTheDocGia.Text = "Lập thẻ độc giả";
+            this.btnLapTheDocGia.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLapTheDocGia.Click += new System.EventHandler(this.btnLapTheDocGia_Click);
+            // 
+            // btnTiepNhanSach
+            // 
+            this.btnTiepNhanSach.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTiepNhanSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTiepNhanSach.Image")));
+            this.btnTiepNhanSach.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnTiepNhanSach.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+            this.btnTiepNhanSach.Name = "btnTiepNhanSach";
+            this.btnTiepNhanSach.Size = new System.Drawing.Size(138, 46);
+            this.btnTiepNhanSach.Text = "Tiếp nhận sách";
+            this.btnTiepNhanSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTiepNhanSach.Click += new System.EventHandler(this.btnTiepNhanSach_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(0, 1, 30, 2);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(80, 46);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // GiaoDienGUI
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 474);
+            this.ClientSize = new System.Drawing.Size(1234, 661);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GiaoDienGUI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GiaoDienGUI";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -79,7 +134,10 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton btnSinhVien;
+        private System.Windows.Forms.ToolStripButton btnBangCap;
+        private System.Windows.Forms.ToolStripButton btnLapTheDocGia;
+        private System.Windows.Forms.ToolStripButton btnTiepNhanSach;
+        private System.Windows.Forms.ToolStripButton btnThoat;
     }
 }

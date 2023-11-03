@@ -16,5 +16,25 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void btnSinhVien_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBangCap_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLapTheDocGia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTiepNhanSach_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
