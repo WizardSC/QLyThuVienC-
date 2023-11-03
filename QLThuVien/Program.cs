@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLThuVien.GUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace QLThuVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI.NhanVienGUI());
+            Application.Run(new NhanVienGUI());
         }
     }
 }
