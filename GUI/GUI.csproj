@@ -64,11 +64,11 @@
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="LapTheDocGia.cs">
+    <Compile Include="LapTheDocGiaGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LapTheDocGia.Designer.cs">
-      <DependentUpon>LapTheDocGia.cs</DependentUpon>
+    <Compile Include="LapTheDocGiaGUI.Designer.cs">
+      <DependentUpon>LapTheDocGiaGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="NhanVienGUI.cs">
       <SubType>Form</SubType>
@@ -84,8 +84,8 @@
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LapTheDocGia.resx">
-      <DependentUpon>LapTheDocGia.cs</DependentUpon>
+    <EmbeddedResource Include="LapTheDocGiaGUI.resx">
+      <DependentUpon>LapTheDocGiaGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NhanVienGUI.resx">
       <DependentUpon>NhanVienGUI.cs</DependentUpon>
