@@ -18,7 +18,7 @@ namespace GUI
         public NhanVienGUI()
         {
             InitializeComponent();
-            databaseBLL = new DatabaseBLL();
+          //  databaseBLL = new DatabaseBLL();
         }
 
         public void init()
