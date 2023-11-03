@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GiaoDienGUI));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnSinhVien = new System.Windows.Forms.ToolStripButton();
+            this.btnNhanVien = new System.Windows.Forms.ToolStripButton();
             this.btnBangCap = new System.Windows.Forms.ToolStripButton();
             this.btnLapTheDocGia = new System.Windows.Forms.ToolStripButton();
             this.btnTiepNhanSach = new System.Windows.Forms.ToolStripButton();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
+            this.pnMain = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.toolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(175)))), ((int)(((byte)(248)))));
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSinhVien,
+            this.btnNhanVien,
             this.btnBangCap,
             this.btnLapTheDocGia,
             this.btnTiepNhanSach,
@@ -55,17 +56,17 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "Sinh viên";
             // 
-            // btnSinhVien
+            // btnNhanVien
             // 
-            this.btnSinhVien.AutoSize = false;
-            this.btnSinhVien.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSinhVien.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.Image")));
-            this.btnSinhVien.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSinhVien.Name = "btnSinhVien";
-            this.btnSinhVien.Size = new System.Drawing.Size(100, 37);
-            this.btnSinhVien.Text = "Sinh viên";
-            this.btnSinhVien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSinhVien.Click += new System.EventHandler(this.btnSinhVien_Click);
+            this.btnNhanVien.AutoSize = false;
+            this.btnNhanVien.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanVien.Image")));
+            this.btnNhanVien.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.Size = new System.Drawing.Size(100, 37);
+            this.btnNhanVien.Text = "Nhân viên";
+            this.btnNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNhanVien.Click += new System.EventHandler(this.btnSinhVien_Click);
             // 
             // btnBangCap
             // 
@@ -115,13 +116,25 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // pnMain
+            // 
+            this.pnMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(236)))), ((int)(((byte)(247)))));
+            this.pnMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMain.Location = new System.Drawing.Point(0, 49);
+            this.pnMain.Margin = new System.Windows.Forms.Padding(4);
+            this.pnMain.Name = "pnMain";
+            this.pnMain.Size = new System.Drawing.Size(1234, 612);
+            this.pnMain.TabIndex = 3;
+            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 661);
+            this.Controls.Add(this.pnMain);
             this.Controls.Add(this.toolStrip1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GiaoDienGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GiaoDienGUI";
@@ -134,10 +147,11 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnSinhVien;
+        private System.Windows.Forms.ToolStripButton btnNhanVien;
         private System.Windows.Forms.ToolStripButton btnBangCap;
         private System.Windows.Forms.ToolStripButton btnLapTheDocGia;
         private System.Windows.Forms.ToolStripButton btnTiepNhanSach;
         private System.Windows.Forms.ToolStripButton btnThoat;
+        private System.Windows.Forms.Panel pnMain;
     }
 }
