@@ -59,6 +59,43 @@ namespace GUI
                 bangcapGUI.Show();
             }
         }
+        private void clickbtnLapThe()
+        {
+            if (laptheGUI == null)
+            {
+                laptheGUI = new LapTheDocGiaGUI();
+                laptheGUI.Location = new Point(300, 10);
+                laptheGUI.TopMost = true;
+
+                laptheGUI.TopLevel = false;
+
+                laptheGUI.Parent = pnMain;
+                pnMain.Controls.Add(laptheGUI);
+                laptheGUI.ControlBox = true;
+                laptheGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
+                laptheGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
+                laptheGUI.FormClosed += (s, args) => laptheGUI = null; // Đặt laptheGUI thành null khi form bị đóng
+                laptheGUI.Show();
+            }
+            else
+            {
+                // Đóng form hiện tại và tạo một form laptheGUI mới
+                laptheGUI.Close();
+                laptheGUI = new LapTheDocGiaGUI();
+                laptheGUI.Location = new Point(300, 10);
+                laptheGUI.TopMost = true;
+
+                laptheGUI.TopLevel = false;
+
+                laptheGUI.Parent = pnMain;
+                pnMain.Controls.Add(laptheGUI);
+                laptheGUI.ControlBox = true;
+                laptheGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
+                laptheGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
+                laptheGUI.FormClosed += (s, args) => laptheGUI = null; // Đặt laptheGUI thành null khi form bị đóng
+                laptheGUI.Show();
+            }
+        }
         private void btnSinhVien_Click(object sender, EventArgs e)
         {
 
@@ -71,12 +108,15 @@ namespace GUI
 
         private void btnLapTheDocGia_Click(object sender, EventArgs e)
         {
-
+            clickbtnLapThe();
+            Console.WriteLine("ok");
         }
 
         private void btnTiepNhanSach_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
