@@ -14,9 +14,8 @@ namespace QLThuVien.GUI
 {
     public partial class NhanVienGUI : Form
     {
-
-        SqlDataAdapter da;
-        string maNV;
+        
+        int maNV;
         public SqlConnection conn = null;
         
         public void Connect()
@@ -33,6 +32,7 @@ namespace QLThuVien.GUI
             LoadForm();
             dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+          
 
         }
         string sql = "Select MaNhanVien,HoTenNhanVien,NgaySinh,DiaChi,DienThoai from NhanVien";
@@ -57,12 +57,12 @@ namespace QLThuVien.GUI
         private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int i = dgvNhanVien.CurrentRow.Index;
-            maNV = dgvNhanVien.Rows[i].Cells[1].Value.ToString();
+            maNV = int.Parse(dgvNhanVien.Rows[i].Cells[0].Value.ToString());
             txtTen.Text = dgvNhanVien.Rows[i].Cells[1].Value.ToString();
             dtpNgaySinh.Value = DateTime.Parse((dgvNhanVien.Rows[i].Cells[2].Value.ToString()));
             txtDiaChi.Text = dgvNhanVien.Rows[i].Cells[3].Value.ToString();
             txtDienThoai.Text = dgvNhanVien.Rows[i].Cells[4].Value.ToString();
-            
+            btnThem.Enabled = false;
             
         }
         private void reset()
@@ -71,6 +71,7 @@ namespace QLThuVien.GUI
             txtDiaChi.Text = "";
             txtDienThoai.Text = "";
             dtpNgaySinh.Value = DateTime.Now;
+            btnThem.Enabled = true;
         }
         public bool themNhanVien(string strTen, DateTime NgaySinh, string strDiaChi, string strDienThoai)
         {
@@ -105,10 +106,10 @@ namespace QLThuVien.GUI
             {
                 if (char.IsDigit(c))
                 {
-                    return true; // Nếu có ít nhất một chữ số, trả về true
+                    return true;
                 }
             }
-            return false; // Không có chữ số nào, trả về false
+            return false;
         }
         private bool ContainsLetter(string text)
         {
@@ -116,19 +117,14 @@ namespace QLThuVien.GUI
             {
                 if (char.IsLetter(c))
                 {
-                    return true; // Nếu có ít nhất một chữ cái, trả về true
+                    return true; 
                 }
             }
-            return false; // Không có chữ cái nào, trả về false
+            return false; 
         }
         private void txtTen_TextChanged(object sender, EventArgs e)
         {
-            if (ContainsDigit(txtTen.Text))
-            {
-                
-                MessageBox.Show("Tên không được chứa số.");
-                txtTen.Clear(); 
-            }
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -143,6 +139,16 @@ namespace QLThuVien.GUI
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
+            else if (ContainsDigit(txtTen.Text))
+            {
+
+                MessageBox.Show("Tên không được chứa số.");
+                
+            }
+            else if (ContainsLetter(txtDienThoai.Text))
+            {
+                MessageBox.Show("Diện thoại không được chứa chữ.");  
             }
             else
             {
@@ -170,12 +176,12 @@ namespace QLThuVien.GUI
             Connect();
             string query = "UPDATE NhanVien SET HoTenNhanVien = @Ten, NgaySinh = @NgaySinh, DiaChi = @DiaChi, DienThoai = @DienThoai WHERE MaNhanVien = @MaNhanVien";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@MaNhanVien", maNV);
-            cmd.Parameters.AddWithValue("@Ten", ten);
-            cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh);
-            cmd.Parameters.AddWithValue("@DiaChi", diaChi);
-            cmd.Parameters.AddWithValue("@DienThoai", dienThoai);
-
+            
+            cmd.Parameters.AddWithValue("@Ten", ten).SqlDbType = SqlDbType.NVarChar; ;
+            cmd.Parameters.AddWithValue("@NgaySinh", ngaySinh).SqlDbType = SqlDbType.DateTime;
+            cmd.Parameters.AddWithValue("@DiaChi", diaChi).SqlDbType = SqlDbType.NVarChar ;
+            cmd.Parameters.AddWithValue("@DienThoai", dienThoai).SqlDbType = SqlDbType.NVarChar; ;
+            cmd.Parameters.AddWithValue("@MaNhanVien", maNV).SqlDbType = SqlDbType.Int;
             try
             {
                 cmd.ExecuteNonQuery();
@@ -210,6 +216,16 @@ namespace QLThuVien.GUI
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+            else if (ContainsDigit(txtTen.Text))
+            {
+
+                MessageBox.Show("Tên không được chứa số.");
+
+            }
+            else if (ContainsLetter(txtDienThoai.Text))
+            {
+                MessageBox.Show("Diện thoại không được chứa chữ.");
+            }
             else {
                 if(suaNhanVien(ten, ngaySinh, diachi, dien))
                 {
@@ -232,20 +248,58 @@ namespace QLThuVien.GUI
 
         private void txtDienThoai_TextChanged(object sender, EventArgs e)
         {
-            if (ContainsLetter(txtDienThoai.Text))
-            {
-                MessageBox.Show("Diện thoại không được chứa chữ.");
-                txtDienThoai.Clear();
-            }
+           
         }
 
         private void dtpNgaySinh_ValueChanged(object sender, EventArgs e)
         {
-            if(dtpNgaySinh.Value > DateTime.Now)
+            if (dtpNgaySinh.Value > DateTime.Now)
             {
                 MessageBox.Show("Ngày sinh lớn hơn ngày hiện tại.");
                 dtpNgaySinh.Value = DateTime.Now;
             }
+        }
+        public void xoaNhanVien(int maNhanVien)
+        {
+            Connect();
+            string query = "DELETE FROM NhanVien WHERE MaNhanVien = @MaNhanVien";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@MaNhanVien", maNhanVien);
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu cần thiết
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn Xóa nhân viên không?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                xoaNhanVien(maNV);
+                MessageBox.Show("Xóa thành công",
+                          "Thông báo",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information);
+                LoadForm();
+                reset();
+            }
+                
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
