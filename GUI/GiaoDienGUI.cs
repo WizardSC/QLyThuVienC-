@@ -110,11 +110,14 @@ namespace GUI
         private void btnLapTheDocGia_Click(object sender, EventArgs e)
         {
             clickbtnLapThe();
+            Console.WriteLine("ok");
         }
 
         private void btnTiepNhanSach_Click(object sender, EventArgs e)
         {
 
         }
+
+        
     }
 }
