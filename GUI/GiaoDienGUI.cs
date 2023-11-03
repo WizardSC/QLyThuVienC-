@@ -14,7 +14,11 @@ namespace GUI
     {
         //private SinhVienGUI svGUI = null; // Biến để theo dõi form SinhVienGUI
         private BangCapGUI bangcapGUI = null; // Biến để theo dõi form bangcapGUI
+<<<<<<< Updated upstream
         private LapTheDocGiaGUI laptheGUI = null;
+=======
+       
+>>>>>>> Stashed changes
         //private NhapDiemGUI nhapDiemGUI = null; // Biến để theo dõi form NhapDiemGUI
         //private MonGUI monHocGUI = null; // Biến để theo dõi form MonHocGUI
         //private XemDiemGUI xemDiemGUI = null; // Biến để theo dõi form XemDiemGUI
