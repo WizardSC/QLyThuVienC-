@@ -14,6 +14,7 @@ namespace GUI
     {
         //private SinhVienGUI svGUI = null; // Biến để theo dõi form SinhVienGUI
         private BangCapGUI bangcapGUI = null; // Biến để theo dõi form bangcapGUI
+        private LapTheDocGiaGUI lapTheGUI = null;
         //private NhapDiemGUI nhapDiemGUI = null; // Biến để theo dõi form NhapDiemGUI
         //private MonGUI monHocGUI = null; // Biến để theo dõi form MonHocGUI
         //private XemDiemGUI xemDiemGUI = null; // Biến để theo dõi form XemDiemGUI
@@ -61,39 +62,39 @@ namespace GUI
         }
         private void clickbtnLapThe()
         {
-            if (laptheGUI == null)
+            if (lapTheGUI == null)
             {
-                laptheGUI = new LapTheDocGiaGUI();
-                laptheGUI.Location = new Point(300, 10);
-                laptheGUI.TopMost = true;
+                lapTheGUI = new LapTheDocGiaGUI();
+                lapTheGUI.Location = new Point(300, 10);
+                lapTheGUI.TopMost = true;
 
-                laptheGUI.TopLevel = false;
+                lapTheGUI.TopLevel = false;
 
-                laptheGUI.Parent = pnMain;
-                pnMain.Controls.Add(laptheGUI);
-                laptheGUI.ControlBox = true;
-                laptheGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
-                laptheGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
-                laptheGUI.FormClosed += (s, args) => laptheGUI = null; // Đặt laptheGUI thành null khi form bị đóng
-                laptheGUI.Show();
+                lapTheGUI.Parent = pnMain;
+                pnMain.Controls.Add(lapTheGUI);
+                lapTheGUI.ControlBox = true;
+                lapTheGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
+                lapTheGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
+                lapTheGUI.FormClosed += (s, args) => lapTheGUI = null; // Đặt lapTheGUI thành null khi form bị đóng
+                lapTheGUI.Show();
             }
             else
             {
-                // Đóng form hiện tại và tạo một form laptheGUI mới
-                laptheGUI.Close();
-                laptheGUI = new LapTheDocGiaGUI();
-                laptheGUI.Location = new Point(300, 10);
-                laptheGUI.TopMost = true;
+                // Đóng form hiện tại và tạo một form lapTheGUI mới
+                lapTheGUI.Close();
+                lapTheGUI = new LapTheDocGiaGUI();
+                lapTheGUI.Location = new Point(300, 10);
+                lapTheGUI.TopMost = true;
 
-                laptheGUI.TopLevel = false;
+                lapTheGUI.TopLevel = false;
 
-                laptheGUI.Parent = pnMain;
-                pnMain.Controls.Add(laptheGUI);
-                laptheGUI.ControlBox = true;
-                laptheGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
-                laptheGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
-                laptheGUI.FormClosed += (s, args) => laptheGUI = null; // Đặt laptheGUI thành null khi form bị đóng
-                laptheGUI.Show();
+                lapTheGUI.Parent = pnMain;
+                pnMain.Controls.Add(lapTheGUI);
+                lapTheGUI.ControlBox = true;
+                lapTheGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
+                lapTheGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
+                lapTheGUI.FormClosed += (s, args) => lapTheGUI = null; // Đặt lapTheGUI thành null khi form bị đóng
+                lapTheGUI.Show();
             }
         }
         private void btnSinhVien_Click(object sender, EventArgs e)
