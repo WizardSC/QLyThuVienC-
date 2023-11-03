@@ -12,11 +12,53 @@ namespace GUI
 {
     public partial class GiaoDienGUI : Form
     {
+        //private SinhVienGUI svGUI = null; // Biến để theo dõi form SinhVienGUI
+        private BangCapGUI bangcapGUI = null; // Biến để theo dõi form bangcapGUI
+        //private NhapDiemGUI nhapDiemGUI = null; // Biến để theo dõi form NhapDiemGUI
+        //private MonGUI monHocGUI = null; // Biến để theo dõi form MonHocGUI
+        //private XemDiemGUI xemDiemGUI = null; // Biến để theo dõi form XemDiemGUI
+        //private ThongKeGUI thongKeGUI = null; // Biến để theo dõi form ThongKeGUI
         public GiaoDienGUI()
         {
             InitializeComponent();
         }
+        private void clickbtnBangCap()
+        {
+            if (bangcapGUI == null)
+            {
+                bangcapGUI = new BangCapGUI();
+                bangcapGUI.Location = new Point(300, 10);
+                bangcapGUI.TopMost = true;
 
+                bangcapGUI.TopLevel = false;
+
+                bangcapGUI.Parent = pnMain;
+                pnMain.Controls.Add(bangcapGUI);
+                bangcapGUI.ControlBox = true;
+                bangcapGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
+                bangcapGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
+                bangcapGUI.FormClosed += (s, args) => bangcapGUI = null; // Đặt bangcapGUI thành null khi form bị đóng
+                bangcapGUI.Show();
+            }
+            else
+            {
+                // Đóng form hiện tại và tạo một form bangcapGUI mới
+                bangcapGUI.Close();
+                bangcapGUI = new BangCapGUI();
+                bangcapGUI.Location = new Point(300, 10);
+                bangcapGUI.TopMost = true;
+
+                bangcapGUI.TopLevel = false;
+
+                bangcapGUI.Parent = pnMain;
+                pnMain.Controls.Add(bangcapGUI);
+                bangcapGUI.ControlBox = true;
+                bangcapGUI.FormBorderStyle = FormBorderStyle.FixedSingle;
+                bangcapGUI.Click += (s, args) => { ((Form)s).BringToFront(); };
+                bangcapGUI.FormClosed += (s, args) => bangcapGUI = null; // Đặt bangcapGUI thành null khi form bị đóng
+                bangcapGUI.Show();
+            }
+        }
         private void btnSinhVien_Click(object sender, EventArgs e)
         {
 
@@ -24,7 +66,7 @@ namespace GUI
 
         private void btnBangCap_Click(object sender, EventArgs e)
         {
-
+            clickbtnBangCap();
         }
 
         private void btnLapTheDocGia_Click(object sender, EventArgs e)
