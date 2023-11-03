@@ -58,7 +58,7 @@ namespace DAL
             }
             return dt;
         }
-        public bool XoaNhanVien(string index_nv)
+        public bool XoaNhanVien(int index_nv)
         {
 
             try
@@ -90,7 +90,7 @@ namespace DAL
             try
             {
                 Connect();
-                string query =  string.Format("Insert Into NhanVien Values(N'{0}', '{1}', N'{2}', '{3}',{ 4})",ten, ngaysinh, diachi, dienthoai, index_bc);
+                string query =  string.Format("Insert Into NHANVIEN Values(N'{0}', '{1}', N'{2}', '{3}',{4})",ten, ngaysinh, diachi, dienthoai, index_bc);
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.ExecuteNonQuery();
@@ -110,13 +110,13 @@ namespace DAL
             }
         }
 
-        public bool CapNhatNhanVien(string index_nv, string hoten,string ngaysinh, string diachi, string dienthoai, string index_bc)
+        public bool CapNhatNhanVien(int index_nv, string hoten,string ngaysinh, string diachi, string dienthoai, string index_bc)
         {
 
             try
             {
                 Connect();
-                string query = string.Format("Update NHANVIEN set HoTenNhanVien = N'{0}', NgaySinh = '{1}', diachi = N'{2}', dienthoai = '{3}', MaBangCap = { 4}  where MaNhanVien = { 5 }", hoten, ngaysinh, diachi, dienthoai, index_bc, index_nv);
+                string query = string.Format("Update NHANVIEN set HoTenNhanVien = N'{0}', NgaySinh = '{1}', diachi = N'{2}', dienthoai = '{3}', MaBangCap = {4}  where MaNhanVien = {5}", hoten, ngaysinh, diachi, dienthoai, index_bc, index_nv);
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 

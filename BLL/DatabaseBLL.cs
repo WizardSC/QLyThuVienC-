@@ -22,7 +22,7 @@ namespace BLL
             return DatabaseDAL.LayBangcap();
         }
 
-        public bool XoaNhanVien(string index_nv)
+        public bool XoaNhanVien(int index_nv)
         {
             return DatabaseDAL.XoaNhanVien(index_nv);
         }
@@ -33,7 +33,7 @@ namespace BLL
             return DatabaseDAL.ThemNhanVien(ten, ngaysinh, diachi, dienthoai, index_bc);
         }
 
-        public bool CapNhatNhanVien(string index_nv, string hoten, string ngaysinh, string diachi, string dienthoai, string index_bc)
+        public bool CapNhatNhanVien(int index_nv, string hoten, string ngaysinh, string diachi, string dienthoai, string index_bc)
         {
           
             return DatabaseDAL.CapNhatNhanVien(index_nv, hoten, ngaysinh, diachi, dienthoai, index_bc);
