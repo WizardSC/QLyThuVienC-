@@ -32,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>GUI.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,11 +64,19 @@
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </Compile>
+
     <Compile Include="LapTheDocGiaGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LapTheDocGiaGUI.Designer.cs">
       <DependentUpon>LapTheDocGiaGUI.cs</DependentUpon>
+
+    <Compile Include="NhanVienGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVienGUI.Designer.cs">
+      <DependentUpon>NhanVienGUI.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,8 +86,12 @@
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="LapTheDocGiaGUI.resx">
       <DependentUpon>LapTheDocGiaGUI.cs</DependentUpon>
+
+    <EmbeddedResource Include="NhanVienGUI.resx">
+      <DependentUpon>NhanVienGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
