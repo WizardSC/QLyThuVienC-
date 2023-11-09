@@ -102,6 +102,9 @@
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LapPhieuMuonSachGUI.resx">
+      <DependentUpon>LapPhieuMuonSachGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LapPhieuThuTienGUI.resx">
       <DependentUpon>LapPhieuThuTienGUI.cs</DependentUpon>
     </EmbeddedResource>
