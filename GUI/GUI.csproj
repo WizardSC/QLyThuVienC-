@@ -64,6 +64,18 @@
     <Compile Include="GiaoDienGUI.Designer.cs">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="LapPhieuMuonSachGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LapPhieuMuonSachGUI.Designer.cs">
+      <DependentUpon>LapPhieuMuonSachGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LapPhieuThuTienGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LapPhieuThuTienGUI.Designer.cs">
+      <DependentUpon>LapPhieuThuTienGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="LapTheDocGiaGUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,11 +90,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TiepNhanSachGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiepNhanSachGUI.Designer.cs">
+      <DependentUpon>TiepNhanSachGUI.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="BangCapGUI.resx">
       <DependentUpon>BangCapGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiaoDienGUI.resx">
       <DependentUpon>GiaoDienGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LapPhieuThuTienGUI.resx">
+      <DependentUpon>LapPhieuThuTienGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LapTheDocGiaGUI.resx">
       <DependentUpon>LapTheDocGiaGUI.cs</DependentUpon>
@@ -99,6 +120,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TiepNhanSachGUI.resx">
+      <DependentUpon>TiepNhanSachGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

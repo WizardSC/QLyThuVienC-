@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class Database : MSSConnect
+    public class NhanVienDAL : MSSConnect
     {
         public DataTable LayDSNhanvien()
         {

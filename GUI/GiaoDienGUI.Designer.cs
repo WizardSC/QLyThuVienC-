@@ -36,6 +36,8 @@
             this.btnTiepNhanSach = new System.Windows.Forms.ToolStripButton();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.pnMain = new System.Windows.Forms.Panel();
+            this.btnLapPhieuThuTien = new System.Windows.Forms.ToolStripButton();
+            this.btnLapPhieuMuon = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,9 @@
             this.btnBangCap,
             this.btnLapTheDocGia,
             this.btnTiepNhanSach,
-            this.btnThoat});
+            this.btnThoat,
+            this.btnLapPhieuMuon,
+            this.btnLapPhieuThuTien});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1234, 49);
@@ -66,7 +70,7 @@
             this.btnNhanVien.Size = new System.Drawing.Size(100, 37);
             this.btnNhanVien.Text = "Nhân viên";
             this.btnNhanVien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNhanVien.Click += new System.EventHandler(this.btnSinhVien_Click);
+            this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // btnBangCap
             // 
@@ -126,6 +130,30 @@
             this.pnMain.Size = new System.Drawing.Size(1234, 612);
             this.pnMain.TabIndex = 3;
             // 
+            // btnLapPhieuThuTien
+            // 
+            this.btnLapPhieuThuTien.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLapPhieuThuTien.Image = ((System.Drawing.Image)(resources.GetObject("btnLapPhieuThuTien.Image")));
+            this.btnLapPhieuThuTien.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLapPhieuThuTien.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+            this.btnLapPhieuThuTien.Name = "btnLapPhieuThuTien";
+            this.btnLapPhieuThuTien.Size = new System.Drawing.Size(162, 46);
+            this.btnLapPhieuThuTien.Text = "Lập phiếu thu tiền";
+            this.btnLapPhieuThuTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLapPhieuThuTien.Click += new System.EventHandler(this.btnLapPhieuThuTien_Click);
+            // 
+            // btnLapPhieuMuon
+            // 
+            this.btnLapPhieuMuon.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLapPhieuMuon.Image = ((System.Drawing.Image)(resources.GetObject("btnLapPhieuMuon.Image")));
+            this.btnLapPhieuMuon.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnLapPhieuMuon.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+            this.btnLapPhieuMuon.Name = "btnLapPhieuMuon";
+            this.btnLapPhieuMuon.Size = new System.Drawing.Size(150, 46);
+            this.btnLapPhieuMuon.Text = "Lập phiếu mượn";
+            this.btnLapPhieuMuon.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLapPhieuMuon.Click += new System.EventHandler(this.btnLapPhieuMuon_Click);
+            // 
             // GiaoDienGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,5 +181,7 @@
         private System.Windows.Forms.ToolStripButton btnTiepNhanSach;
         private System.Windows.Forms.ToolStripButton btnThoat;
         private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.ToolStripButton btnLapPhieuMuon;
+        private System.Windows.Forms.ToolStripButton btnLapPhieuThuTien;
     }
 }
