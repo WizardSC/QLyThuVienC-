@@ -22,12 +22,36 @@ namespace BLL
         {
             return phieuMuonSachDAL.GetListPhieuMuonSach();
         }
+        public List<int> GetListMaPhieuMuonSach()
+        {
+            DataTable dataTable = phieuMuonSachDAL.GetListPhieuMuonSach();
+
+            List<int> maPhieuMuonList = dataTable.AsEnumerable()
+                                                 .Select(row => row.Field<int>("MaPhieuMuon"))
+                                                 .ToList();
+
+            return maPhieuMuonList;
+        }
+
+        public int GetLatestMaPhieuMuon()
+        {
+            List<int> maPhieuMuonList = GetListMaPhieuMuonSach();
+
+            if (maPhieuMuonList.Count > 0)
+            {
+             
+                return maPhieuMuonList[0] + 1; // 
+            }
+
+            //nếu rỗng return 1;
+            return 1;
+        }
 
         public bool InsertPhieuMuonSach(PhieuMuonSachDTO phieuMuonSach)
         {
             return phieuMuonSachDAL.InsertPhieuMuonSach(phieuMuonSach);
         }
 
-        // Các hàm Update và Delete tương tự như SachBLL
+        
     }
 }

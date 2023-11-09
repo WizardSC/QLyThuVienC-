@@ -2,6 +2,8 @@
 using System.Data;
 using DTO;
 using DAL;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BLL
 {
@@ -17,6 +19,17 @@ namespace BLL
         public DataTable GetListSach()
         {
             return sachDAL.GetListSach();
+        }
+
+        public List<int> getListMaSach()
+        {
+            DataTable dataTable = sachDAL.GetListSach();
+
+            List<int> listSach = dataTable.AsEnumerable()
+                                                 .Select(row => row.Field<int>("MaSach"))
+                                                 .ToList();
+
+            return listSach;
         }
 
         public bool InsertSach(SachDTO sach)
