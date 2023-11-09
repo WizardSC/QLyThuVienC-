@@ -8,15 +8,31 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class DatabaseBLL
+    public class NhanVienBLL
     {
-        private Database DatabaseDAL = new Database(); // Tạo một đối tượng DAL để gọi các phương thức DAL.
+        private NhanVienDAL DatabaseDAL = new NhanVienDAL(); // Tạo một đối tượng DAL để gọi các phương thức DAL.
 
         public DataTable LayDSNhanvien()
         {
             return DatabaseDAL.LayDSNhanvien();
         }
+        public List<string> GetListMaNhanVien()
+        {
+            DataTable dataTable = DatabaseDAL.LayDSNhanvien(); // Giả sử LayDSNhanvien trả về DataTable
+            List<string> listMaNhanVien = new List<string>();
 
+            if (dataTable != null && dataTable.Rows.Count > 0)
+            {
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    // Lấy giá trị từ cột MaNhanVien và thêm vào danh sách
+                    string maNhanVien = row["MaNhanVien"].ToString();
+                    listMaNhanVien.Add(maNhanVien);
+                }
+            }
+
+            return listMaNhanVien;
+        }
         public DataTable LayBangcap()
         {
             return DatabaseDAL.LayBangcap();

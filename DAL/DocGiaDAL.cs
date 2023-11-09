@@ -80,10 +80,12 @@ namespace DAL
             try
             {
                 Connect();
-                string query = "UPDATE DocGia SET HoTen = @HoTen, NgaySinh = @NgaySinh, Email = @Email, NgayLapThe = @NgayLapThe, NgayHetHan = @NgayHetHan, TienNo = @TienNo WHERE MaDocGia = @MaDocGia";
+                string query = "UPDATE DocGia SET HoTenDocGia = @HoTenDocGia, NgaySinh = @NgaySinh, DiaChi = @DiaChi, Email = @Email, NgayLapThe = @NgayLapThe, NgayHetHan = @NgayHetHan, TienNo = @TienNo WHERE MaDocGia = @MaDocGia";
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.Add("@HoTen", SqlDbType.NChar).Value = docGia.HoTenDocGia;
+                cmd.Parameters.Add("@HoTenDocGia", SqlDbType.NVarChar).Value = docGia.HoTenDocGia;
                 cmd.Parameters.Add("@NgaySinh", SqlDbType.DateTime).Value = docGia.NgaySinh;
+                cmd.Parameters.Add("@DiaChi", SqlDbType.NChar).Value = docGia.DiaChi;
+
                 cmd.Parameters.Add("@Email", SqlDbType.NChar).Value = docGia.Email;
                 cmd.Parameters.Add("@NgayLapThe", SqlDbType.DateTime).Value = docGia.NgayLapThe;
                 cmd.Parameters.Add("@NgayHetHan", SqlDbType.DateTime).Value = docGia.NgayHetHan;

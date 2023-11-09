@@ -11,17 +11,26 @@ namespace BLL
     public class DocGiaBLL
     {
         private DocGiaDAL dgDAL;
-
         public DocGiaBLL()
         {
             dgDAL = new DocGiaDAL();
+            
         }
 
         public DataTable GetListDocGia()
         {
             return dgDAL.getListDocGia();
         }
+        public List<int> GetListMaDocGia()
+        {
+            DataTable dataTable = dgDAL.getListDocGia();
 
+            List<int> listMaDocGia = dataTable.AsEnumerable()
+                                                 .Select(row => row.Field<int>("MaDocGia"))
+                                                 .ToList();
+
+            return listMaDocGia;
+        }
         public bool InsertDocGia(DocGiaDTO docGia)
         {
             return dgDAL.insertDocGia(docGia);

@@ -16,13 +16,13 @@ namespace GUI
     public partial class NhanVienGUI : Form
     {
         DataTable data = new DataTable();
-        private DatabaseBLL databaseBLL;
+        private NhanVienBLL databaseBLL;
         private DataTable dt;
         public bool themmoi = false;
         public NhanVienGUI()
         {
             InitializeComponent();
-            databaseBLL = new DatabaseBLL();
+            databaseBLL = new NhanVienBLL();
         }
 
         public void init()
