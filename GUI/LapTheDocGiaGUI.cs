@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,6 +37,13 @@ namespace GUI
             double result;
             return double.TryParse(input, out result);
         }
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return false;
+
+            return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        }
         private void btnNhapThongTin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtHoTen.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtEmail.Text)
@@ -59,7 +67,11 @@ namespace GUI
                 MessageBox.Show("Tiền nợ phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Kết thúc hàm nếu có lỗi
             }
-
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Email không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; 
+            }
             DocGiaDTO docGia = new DocGiaDTO();
             docGia.HoTenDocGia = txtHoTen.Text;
             docGia.NgaySinh = dtpNgaySinh.Value;
@@ -77,6 +89,7 @@ namespace GUI
                         MessageBoxIcon.Information);
 
                 dgvDocGia.DataSource = dgBLL.GetListDocGia();
+                btnReset_Click(sender, e);
             }
             else
             {
@@ -112,7 +125,11 @@ namespace GUI
                 MessageBox.Show("Tiền nợ phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Kết thúc hàm nếu có lỗi
             }
-
+            if (!IsValidEmail(txtEmail.Text))
+            {
+                MessageBox.Show("Email không hợp lệ!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DocGiaDTO docGia = new DocGiaDTO();
             docGia.HoTenDocGia = txtHoTen.Text;
             docGia.NgaySinh = dtpNgaySinh.Value;
@@ -131,6 +148,7 @@ namespace GUI
                         MessageBoxIcon.Information);
 
                 dgvDocGia.DataSource = dgBLL.GetListDocGia();
+                btnReset_Click(sender, e);
             }
             else
             {
@@ -218,6 +236,11 @@ namespace GUI
 
             btnChinhSua.Enabled = false;
             btnXoa.Enabled = false;
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

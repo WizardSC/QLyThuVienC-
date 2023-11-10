@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
+using System.Text.RegularExpressions;
 namespace BLL
 {
     public class DocGiaBLL
