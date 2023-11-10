@@ -32,6 +32,15 @@ namespace GUI
             btnChinhSua.Enabled = false;
             btnXoa.Enabled = false;
         }
+        private bool IsDate(DateTime ngaylap, DateTime ngayHetHan)
+        {
+            if(ngaylap > ngayHetHan)
+            {
+                return false;
+            }
+
+            return true;
+        }
         private bool IsNumeric(string input)
         {
             double result;
@@ -71,6 +80,17 @@ namespace GUI
             {
                 MessageBox.Show("Email không hợp lệ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; 
+            }
+            if(!IsDate(dtpNgayLapThe.Value, dtpNgayHetHan.Value))
+            {
+                MessageBox.Show("Ngày lập lớn hơn ngày hết hạn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            if(int.Parse(txtTienNo.Text) < 0)
+            {
+                MessageBox.Show("Tiền nợ không được nhập số âm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             DocGiaDTO docGia = new DocGiaDTO();
             docGia.HoTenDocGia = txtHoTen.Text;
@@ -128,6 +148,17 @@ namespace GUI
             if (!IsValidEmail(txtEmail.Text))
             {
                 MessageBox.Show("Email không hợp lệ!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!IsDate(dtpNgayLapThe.Value, dtpNgayHetHan.Value))
+            {
+                MessageBox.Show("Ngày lập lớn hơn ngày hết hạn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            if (int.Parse(txtTienNo.Text) < 0)
+            {
+                MessageBox.Show("Tiền nợ không được nhập số âm", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             DocGiaDTO docGia = new DocGiaDTO();

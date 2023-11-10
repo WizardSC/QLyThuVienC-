@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 using BLL;
@@ -35,6 +36,11 @@ namespace GUI
             if (!int.TryParse(txtNamXuatBan.Text, out int namXuatBan) || !float.TryParse(txtTriGia.Text, out float triGia))
             {
                 MessageBox.Show("Năm xuất bản và trị giá phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(int.Parse(txtNamXuatBan.Text) > DateTime.Now.Year)
+            {
+                MessageBox.Show("Năm xuất bản vượt quá năm hiện tại " +DateTime.Now.Year, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -74,6 +80,11 @@ namespace GUI
             if (!int.TryParse(txtNamXuatBan.Text, out int namXuatBan) || !float.TryParse(txtTriGia.Text, out float triGia))
             {
                 MessageBox.Show("Năm xuất bản và trị giá phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (int.Parse(txtNamXuatBan.Text) > DateTime.Now.Year)
+            {
+                MessageBox.Show("Năm xuất bản vượt quá năm hiện tại " + DateTime.Now.Year, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
