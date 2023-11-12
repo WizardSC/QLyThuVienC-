@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,19 +28,41 @@ namespace GUI
             dgBLL = new DocGiaBLL();
             dtDocGia = dgBLL.GetListDocGia();
             dgvDocGia.DataSource = dtDocGia;
-
+            dtpNgayLapThe.MaxDate = DateTime.Now;
+            dtpNgaySinh.MaxDate = DateTime.Now;
+            
             btnChinhSua.Enabled = false;
             btnXoa.Enabled = false;
+        }
+        private int loadSoTienNo(int maKH)
+        {
+            int triGia = (from row in dtDocGia.AsEnumerable()
+                          where row.Field<int>("MaDocGia") == maKH
+                          select row.Field<int>("TienNo")).FirstOrDefault();
+
+            // Kiểm tra xem có kết quả không
+            if (triGia != 0)
+            {
+                Console.WriteLine("TriGia: " + triGia);
+            }
+            return triGia;
         }
         private bool IsNumeric(string input)
         {
             double result;
             return double.TryParse(input, out result);
         }
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return false;
+
+            return Regex.IsMatch(email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        }
         private void btnNhapThongTin_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtHoTen.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtEmail.Text)
-                || string.IsNullOrEmpty(txtTienNo.Text))
+                )
             {
                 MessageBox.Show("Không được để trống dữ liệu",
                     "Lỗi",
@@ -52,13 +75,17 @@ namespace GUI
                 MessageBox.Show("Vui lòng nhập chuỗi ở các trường Họ tên và Địa chỉ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            if (!int.TryParse(txtTienNo.Text, out int tienNo))
+            if (!IsValidEmail(txtEmail.Text))
             {
-
-                MessageBox.Show("Tiền nợ phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Kết thúc hàm nếu có lỗi
+                MessageBox.Show("Email không hợp lệ!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+            //if (!int.TryParse(txtTienNo.Text, out int tienNo))
+            //{
+
+            //    MessageBox.Show("Tiền nợ phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return; // Kết thúc hàm nếu có lỗi
+            //}
 
             DocGiaDTO docGia = new DocGiaDTO();
             docGia.HoTenDocGia = txtHoTen.Text;
@@ -67,7 +94,7 @@ namespace GUI
             docGia.Email = txtEmail.Text;
             docGia.NgayLapThe = dtpNgayLapThe.Value;
             docGia.NgayHetHan = dtpNgayHetHan.Value;
-            docGia.TienNo = tienNo;
+            docGia.TienNo = 0;
             int result = dgBLL.InsertDocGia(docGia) ? 1 : 0;
             if (result == 1)
             {
@@ -92,7 +119,7 @@ namespace GUI
         private void btnChinhSua_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtHoTen.Text) || string.IsNullOrEmpty(txtDiaChi.Text) || string.IsNullOrEmpty(txtEmail.Text)
-                || string.IsNullOrEmpty(txtTienNo.Text))
+               )
             {
                 MessageBox.Show("Không được để trống dữ liệu",
                     "Lỗi",
@@ -106,12 +133,12 @@ namespace GUI
                 return;
             }
 
-            if (!int.TryParse(txtTienNo.Text, out int tienNo))
-            {
+            //if (!int.TryParse(txtTienNo.Text, out int tienNo))
+            //{
 
-                MessageBox.Show("Tiền nợ phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Kết thúc hàm nếu có lỗi
-            }
+            //    MessageBox.Show("Tiền nợ phải là số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return; // Kết thúc hàm nếu có lỗi
+            //}
 
             DocGiaDTO docGia = new DocGiaDTO();
             docGia.HoTenDocGia = txtHoTen.Text;
@@ -120,7 +147,7 @@ namespace GUI
             docGia.Email = txtEmail.Text;
             docGia.NgayLapThe = dtpNgayLapThe.Value;
             docGia.NgayHetHan = dtpNgayHetHan.Value;
-            docGia.TienNo = tienNo;
+            docGia.TienNo = loadSoTienNo(int.Parse(txtMaDocGia.Text));
             docGia.MaDocGia = int.Parse(txtMaDocGia.Text);
             int result = dgBLL.UpdateDocGia(docGia) ? 1 : 0;
             if (result == 1)
@@ -218,6 +245,20 @@ namespace GUI
 
             btnChinhSua.Enabled = false;
             btnXoa.Enabled = false;
+        }
+
+        private void txtTienNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpNgayHetHan_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpNgayHetHan.Value < dtpNgayLapThe.Value)
+            {
+                // Nếu ngày hết hạn nhỏ hơn ngày lập thẻ, đặt lại ngày hết hạn bằng ngày lập thẻ
+                dtpNgayHetHan.Value = dtpNgayLapThe.Value;
+            }
         }
     }
 }

@@ -20,6 +20,8 @@ namespace GUI
             btnNhapThongTin.Enabled = true;
             btnChinhSua.Enabled = false;
             btnXoa.Enabled = false;
+
+            dtpNgayLapThe.MaxDate = DateTime.Now;
         }
 
         private void btnNhapThongTin_Click(object sender, EventArgs e)

@@ -15,7 +15,7 @@ namespace DTO
         private string email;
         private DateTime ngayLapThe;
         private DateTime ngayHetHan;
-        private float tienNo;
+        private int tienNo;
 
         public int MaDocGia { get => maDocGia; set => maDocGia = value; }
         public string HoTenDocGia { get => hoTenDocGia; set => hoTenDocGia = value; }
@@ -23,10 +23,10 @@ namespace DTO
         public string Email { get => email; set => email = value; }
         public DateTime NgayLapThe { get => ngayLapThe; set => ngayLapThe = value; }
         public DateTime NgayHetHan { get => ngayHetHan; set => ngayHetHan = value; }
-        public float TienNo { get => tienNo; set => tienNo = value; }
+        public int TienNo { get => tienNo; set => tienNo = value; }
         public string DiaChi { get => diaChi; set => diaChi = value; }
 
-        public DocGiaDTO(int maDocGia, string hoTenDocGia, DateTime ngaySinh, string diaChi, string email, DateTime ngayLapThe, DateTime ngayHetHan, float tienNo)
+        public DocGiaDTO(int maDocGia, string hoTenDocGia, DateTime ngaySinh, string diaChi, string email, DateTime ngayLapThe, DateTime ngayHetHan, int tienNo)
         {
             this.maDocGia = maDocGia;
             this.hoTenDocGia = hoTenDocGia;

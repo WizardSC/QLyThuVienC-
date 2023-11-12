@@ -31,7 +31,31 @@ namespace DAL
             }
             return dt;
         }
+        public bool updateTrangThai(int maPhieuMuon)
+        {
+            try
+            {
+                Connect();
+                string query = "UPDATE PhieumuonSach SET TinhTrang = @TrangThai WHERE MaPhieuMuon = @MaPhieuMuon";
+                SqlCommand cmd = new SqlCommand(query, conn);
 
+                cmd.Parameters.Add("@TrangThai", SqlDbType.Int).Value = 1;
+                cmd.Parameters.Add("@MaPhieuMuon", SqlDbType.Int).Value = maPhieuMuon;
+
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi:" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
         public bool InsertPhieuMuonSach(PhieuMuonSachDTO phieuMuonSach)
         {
             try
@@ -39,10 +63,14 @@ namespace DAL
                 Connect();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "INSERT INTO PHIEUMUONSACH (NgayMuon, MaDocGia) VALUES (@NgayMuon, @MaDocGia)";
+                cmd.CommandText = "INSERT INTO PHIEUMUONSACH (MaPhieuMuon, NgayMuon, MaDocGia, TinhTrang) VALUES (@MaPhieuMuon, @NgayMuon, @MaDocGia, @TinhTrang)";
                 cmd.Connection = conn;
+                cmd.Parameters.Add("@MaPhieuMuon", SqlDbType.Int).Value = phieuMuonSach.MaPhieuMuon;
+         
                 cmd.Parameters.Add("@NgayMuon", SqlDbType.DateTime).Value = phieuMuonSach.NgayMuon;
                 cmd.Parameters.Add("@MaDocGia", SqlDbType.Int).Value = phieuMuonSach.MaDocGia;
+                cmd.Parameters.Add("@TinhTrang", SqlDbType.Int).Value = 0;
+
                 cmd.ExecuteNonQuery();
                 return true;
             }

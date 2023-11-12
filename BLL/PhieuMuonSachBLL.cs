@@ -52,6 +52,10 @@ namespace BLL
             return phieuMuonSachDAL.InsertPhieuMuonSach(phieuMuonSach);
         }
 
+        public bool updateTrangThai(int maPhieuMuon)
+        {
+            return phieuMuonSachDAL.updateTrangThai(maPhieuMuon);
+        }
         
     }
 }
