@@ -40,7 +40,10 @@ namespace BLL
         {
             return dgDAL.updateDocGia(docGia);
         }
-
+        public bool updateTienNo(int tienNo, int maDocGia)
+        {
+            return dgDAL.updateTienNo(tienNo, maDocGia);
+        }
         public bool DeleteDocGia(int maDocGia, out bool isForeignKey)
         {
             return dgDAL.DeleteDocGia(maDocGia, out isForeignKey);

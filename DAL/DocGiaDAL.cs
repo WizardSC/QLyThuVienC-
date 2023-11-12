@@ -34,7 +34,31 @@ namespace DAL
             }
             return dt;
         }
+        public bool updateTienNo(int tienNo, int maDocGia)
+        {
+            try
+            {
+                Connect();
+                string query = "UPDATE DocGia SET TienNo = @TienNo WHERE MaDocGia = @MaDocGia";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                
+                cmd.Parameters.Add("@TienNo", SqlDbType.Int).Value = tienNo;
+                cmd.Parameters.Add("@MaDocGia", SqlDbType.Int).Value = maDocGia;
 
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Lỗi:" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
         public bool insertDocGia(DocGiaDTO docGia)
         {
             try
